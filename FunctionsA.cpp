@@ -56,20 +56,30 @@ int * createDynamicArr(int numElements){
     for(int i = 0; i < numElements; ++i){
         arr[i] = getRandom();
     }
+
+    cout << "Your array: [";
+    for(int i = 0; i < numElements; ++i){
+        cout << arr[i];
+        if(i < (numElements - 1)){cout << ", "; } // If not on the last loop, print a comma
+    }
+    cout << "]" << endl;
     
     return arr;
 }
 
-void sortAndDisplayMedian(int * array, const int &numElements){
-    //Checking for even or odd
-    bool isEven {true};
-    if(numElements % 2 != 0){
-        isEven = false;
+void sortArray(int * array, const int &numElements){
+    bool arraySorted {true};
+    for(int i = 0; i < numElements; ++i){
+        int temp {0};
+        
+        if(array[i] > array[i+1]){
+            temp = array[i];
+            array[i] = array[i+1];
+            array[i+1] = temp;
+            arraySorted = false;
+        }
     }
-
-    for(int i = 0;)
-}
-
-void evenSort(int * array, const int &numElements) {
-    
+    if(!arraySorted){
+        sortArray(array, numElements);
+    }
 }

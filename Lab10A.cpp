@@ -14,7 +14,12 @@ int main(){
 
     numElements = getNumElements();
     arr = createDynamicArr(numElements);
-    
+    sortArray(arr, numElements);
+
+    for(int i = 0; i < numElements; i++){
+        cout << arr[i] << " ";
+    }
+    cout << endl;
     
     
     
