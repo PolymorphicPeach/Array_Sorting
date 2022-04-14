@@ -6,3 +6,4 @@ int getRandom();
 int getNumElements();
 int * createDynamicArr(int);
 void sortArray(int * array, const int &numElements);
+void findArrayMedian(int * arr, const int &numElements);

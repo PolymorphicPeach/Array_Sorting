@@ -69,7 +69,7 @@ int * createDynamicArr(int numElements){
 
 void sortArray(int * array, const int &numElements){
     bool arraySorted {true};
-    for(int i = 0; i < numElements; ++i){
+    for(int i = 0; i <  numElements - 1; ++i){
         int temp {0};
         
         if(array[i] > array[i+1]){
@@ -81,5 +81,45 @@ void sortArray(int * array, const int &numElements){
     }
     if(!arraySorted){
         sortArray(array, numElements);
+    }
+}
+
+void findArrayMedian(int * arr, const int &numElements) {
+    bool isEven {true};
+    double arrMedian {0};
+    
+    if(numElements % 2 != 0){
+        isEven = false;
+    }
+
+    if(isEven){
+        int lowerMiddleIndex {(numElements/2) - 1};
+        int upperMiddleIndex {(numElements/2)};
+
+        //===============================================================================================
+        //This part was so weird; I finally figured out that the static casting would seemingly,
+        //randomly crash my code. Specifically using the static_cast in the initialization of the double
+        //===============================================================================================
+        
+        double lowerMiddleNumber {0.00}; 
+        double upperMiddleNumber {0.00}; 
+        lowerMiddleNumber = static_cast<double>(arr[lowerMiddleIndex]);
+        upperMiddleNumber = static_cast<double>(arr[upperMiddleIndex]);
+ 
+        //===============================================================================================
+        
+        arrMedian = (upperMiddleNumber + lowerMiddleNumber)/2.00;
+        
+        cout << endl << "==============================================" << endl
+                     << "The median of the array is: " << arrMedian << endl
+                     << "==============================================" << endl;
+    }
+    else if (!isEven){
+        int medianIndex {numElements/2};
+        arrMedian = *(arr + medianIndex);
+        cout << endl << "==============================================" << endl
+                     << "The median of the array is: " << arrMedian << endl
+                     << "==============================================" << endl;
+        
     }
 }
