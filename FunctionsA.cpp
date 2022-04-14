@@ -51,7 +51,8 @@ int getRandom() {
 }
 
 int * createDynamicArr(int numElements){
-    int *arr = new int(numElements);
+    int *arr = new int[numElements](); //This was also causing a lot of errors...
+                                       // new int(numElements) would work sometimes, but not every time
 
     for(int i = 0; i < numElements; ++i){
         arr[i] = getRandom();
@@ -103,8 +104,8 @@ void findArrayMedian(int * arr, const int &numElements) {
         
         double lowerMiddleNumber {0.00}; 
         double upperMiddleNumber {0.00}; 
-        lowerMiddleNumber = static_cast<double>(arr[lowerMiddleIndex]);
-        upperMiddleNumber = static_cast<double>(arr[upperMiddleIndex]);
+        lowerMiddleNumber = static_cast<double> (arr[lowerMiddleIndex]);
+        upperMiddleNumber = static_cast<double> (arr[upperMiddleIndex]);
  
         //===============================================================================================
         
