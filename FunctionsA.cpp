@@ -56,7 +56,7 @@ int * createDynamicArr(int numElements){
     for(int i = 0; i < numElements; ++i){
         arr[i] = getRandom();
     }
-
+    cout << "\n======================================================" << endl;
     cout << "Your array: [";
     for(int i = 0; i < numElements; ++i){
         cout << arr[i];
